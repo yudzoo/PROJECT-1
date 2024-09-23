@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    
+
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"
+    ></script>
+  </head>
+  <!--ABOUT-->
+  <body class="h-screen bg-blue-50">
+    <main class="p-5 bg-light-blue">
+      <div class="flex justify-center items-start my-2">
+        <div class="w-full sm:w-10/12 md:w-1/2 my-1">
+          <h2 class="text-xl font-semibold text-vnet-blue mb-2">
+            FAQ - Order, Shipping, Etc.
+          </h2>
+          <ul class="flex flex-col">
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Kapan Produk Saya Sampai?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                  ></path>
+                </svg>
+              </h2>
+              <div
+                x-ref="tab"
+                :style="handleToggle()"
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+              >
+                <p class="p-3 text-gray-900">
+                  Produk anda akan kami kirim setelah anda melakukan pembayaran, ketika anda melakukan pembayaran dihari ini sebelum jam 17:00 maka akan langsung dikirim, jika sesudah jam 17:00 maka akan di kirim besok nya. 
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(2)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Bagaimana cara tau barang saya sudah dimana?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                  ></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                  Anda dapat mengetahui nya ketika barangnya sudah kami kirim, nanti akan kami kirim no resi barang anda dan anda dapat melacak barang anda sudah sampai dimana melalui no resi tersebut.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(3)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Kenapa harus order di YUDZOOTSHIRT?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                  ></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                  Karna kami menjual barang yang sangat berkualitas dan tentunya meenjual dengan sesuai deskripsi apa yang kami berikan, dan kami memiliki berbagai macam warna,ukuran.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(4)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Bagaiman cara membatalkan pesanan?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                  ></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                  YUDZOOTSHIRT tidak dapat membatalkan pesanan anda jadi ketika anda sudah order di YUDZOOTSHIRT anda tidak dapat membatalkan nya.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(5)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Pengiriman apa saja yg tersedia?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                  ></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                  Berbagai pengiriman kami siap mulai dari JNE,JNT,POS dan lainnya.
+                </p>
+              </div>
+            </li>
+            <li class="bg-white my-2 shadow-lg" x-data="accordion(6)">
+              <h2
+                @click="handleClick()"
+                class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+              >
+                <span>Pembayaran apa saja yang bisa?</span>
+                <svg
+                  :class="handleRotate()"
+                  class="fill-current text-purple-700 h-6 w-6 transform transition-transform duration-500"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
+                  ></path>
+                </svg>
+              </h2>
+              <div
+                class="border-l-2 border-purple-600 overflow-hidden max-h-0 duration-500 transition-all"
+                x-ref="tab"
+                :style="handleToggle()"
+              >
+                <p class="p-3 text-gray-900">
+                  YUDZOOTSHIRT Menyediakan berbagai methode pembayar dan juga bisa melakukan pembayaran COD. Tersedia QRIS,TRANFER BANK,dan berbagaai pembayaran online lainnya.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!--ABOUT END-->
+    <!--FOOTER-->
+    <section class="bg-white">
+        <div
+          class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8"
+        >
+          <nav class="flex flex-wrap justify-center -mx-5 -my-2">
+            <div class="px-5 py-2">
+              <a
+                href="/about.html"
+                class="text-base leading-6 text-gray-500 hover:text-gray-900"
+              >
+                About
+              </a>
+            </div>
+            <div class="px-5 py-2">
+              <a
+                href="#"
+                class="text-base leading-6 text-gray-500 hover:text-gray-900"
+              >
+                Blog
+              </a>
+            </div>
+            <div class="px-5 py-2">
+              <a
+                href="#"
+                class="text-base leading-6 text-gray-500 hover:text-gray-900"
+              >
+                Team
+              </a>
+            </div>
+            <div class="px-5 py-2">
+              <a
+                href="#"
+                class="text-base leading-6 text-gray-500 hover:text-gray-900"
+              >
+                Pricing
+              </a>
+            </div>
+            <div class="px-5 py-2">
+              <a
+                href="#"
+                class="text-base leading-6 text-gray-500 hover:text-gray-900"
+              >
+                Contact
+              </a>
+            </div>
+            <div class="px-5 py-2">
+              <a
+                href="https://wa.me/6281215346556"
+                class="text-base leading-6 text-gray-500 hover:text-gray-900"
+              >
+                Terms
+              </a>
+            </div>
+          </nav>
+          <div class="flex justify-center mt-8 space-x-6">
+            <a
+              href="https://www.facebook.com/yuda.frawira.1?mibextid=ZbWKwL"
+              class="text-gray-400 hover:text-gray-500"
+            >
+              <span class="sr-only">Facebook</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/yudhafrawiraa?igsh=bzBsN3VybTFtY3hw"
+              class="text-gray-400 hover:text-gray-500"
+            >
+              <span class="sr-only">Instagram</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <p class="mt-8 text-base leading-6 text-center text-gray-400">
+            © 2024, Inc. All rights reserved.
+          </p>
+        </div>
+      </section>
+      <!--FOOTER END-->
+      <!--NAVBAR-->
+
+    <nav
+    class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+  >
+    <div
+      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+    >
+      <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span
+          class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          >YUDZOO TSHIRT</span
+        >
+      </a>
+      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <a href="/index.html"
+        <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          BACK
+        </button>
+      </a>
+        <button
+          data-collapse-toggle="navbar-sticky"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-sticky"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+        id="navbar-sticky"
+      >
+        <ul
+          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+        >
+          <li>
+            <a
+              href="/index.html"
+              class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Product</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Services</a
+            >
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--NAVBAR END-->
+  
+</body>
+  
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.store("accordion", {
+        tab: 0,
+      });
+
+      Alpine.data("accordion", (idx) => ({
+        init() {
+          this.idx = idx;
+        },
+        idx: -1,
+        handleClick() {
+          this.$store.accordion.tab =
+            this.$store.accordion.tab === this.idx ? 0 : this.idx;
+        },
+        handleRotate() {
+          return this.$store.accordion.tab === this.idx ? "rotate-180" : "";
+        },
+        handleToggle() {
+          return this.$store.accordion.tab === this.idx
+            ? `max-height: ${this.$refs.tab.scrollHeight}px`
+            : "";
+        },
+      }));
+    });
+  </script>
+</html>
